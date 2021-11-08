@@ -4,22 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="16dp"
-    android:orientation="vertical"
+    android:background="@drawable/food_bg_light"
+    android:orientation="vertical">
     tools:context=".LoginActivity">
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        app:srcCompat="@drawable/ig" />
+        android:layout_height="100dp"
+        android:layout_margin="5dp"
+        android:layout_marginBottom="15dp"
+        app:srcCompat="@drawable/cb_logo" />
 
     <EditText
         android:id="@+id/etUsername"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_height="75dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
         android:ems="10"
         android:hint="username"
         android:inputType="textPersonName"
@@ -28,8 +30,9 @@
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_height="75dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
         android:ems="10"
         android:hint="password"
         android:inputType="textPassword"
@@ -37,15 +40,15 @@
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
         android:text="Login" />
 
     <Button
         android:id="@+id/btnSignup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
         android:text="Sign Up" />
 </LinearLayout>

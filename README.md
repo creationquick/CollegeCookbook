@@ -110,3 +110,7 @@ This app will allow college students to look up recipes based on categories (i.e
     
 ### API Endpoints (optional)
 <img src='api.png' width='' alt='Video Walkthrough' />
+
+## Milestones
+### Milestone 1
+<img src='walkthrough-1.gif' width='' alt='Video Walkthrough' />

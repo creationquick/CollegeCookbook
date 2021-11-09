@@ -13,41 +13,59 @@
 <!--        tools:src="@drawable/ic_baseline_add_photo_alternate_24" />-->
 
     <EditText
-        android:id="@+id/etRecipeName"
+        android:id="@+id/etAddRecipeName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginTop="15dp"
-        android:layout_toEndOf="@+id/btnRecipePhoto"
+        android:layout_toEndOf="@+id/btnAddRecipePhoto"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Add Recipe Name" />
+        android:hint="Add Recipe Name"
+        android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/etAddCategory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etRecipeName"
-        android:layout_alignBottom="@+id/btnRecipePhoto"
+        android:layout_below="@+id/etAddRecipeName"
+        android:layout_alignBottom="@+id/btnAddRecipePhoto"
         android:layout_marginStart="5dp"
         android:layout_marginTop="11dp"
         android:layout_marginBottom="16dp"
-        android:layout_toEndOf="@+id/btnRecipePhoto"
+        android:layout_toEndOf="@+id/btnAddRecipePhoto"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Add Category" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnRecipePhoto"
-        android:layout_marginTop="2dp" />
+        android:hint="Add Category"
+        android:inputType="textPersonName" />
 
     <Button
-        android:id="@+id/btnRecipePhoto"
+        android:id="@+id/btnAddRecipePhoto"
         android:layout_width="112dp"
         android:layout_height="125dp"
         android:background="@drawable/ic_baseline_add_photo_alternate_24"
         android:backgroundTint="#686666" />
+
+    <EditText
+        android:id="@+id/etAddCaption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etAddCategory"
+        android:ems="10"
+        android:hint="Add Caption"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/btnSubmitPost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivConfirmRecipePhoto"
+        android:text="Submit" />
+
+    <ImageView
+        android:id="@+id/ivConfirmRecipePhoto"
+        android:layout_width="match_parent"
+        android:layout_height="275dp"
+        android:layout_below="@+id/etAddCaption"
+        android:layout_marginTop="5dp"
+        tools:src="@tools:sample/avatars" />
 
 </RelativeLayout>

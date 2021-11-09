@@ -113,4 +113,8 @@ This app will allow college students to look up recipes based on categories (i.e
 
 ## Milestones
 ### Milestone 1
+- User can login
+- User can logout
+- User can create an account
+
 <img src='walkthrough-1.gif' width='' alt='Video Walkthrough' />

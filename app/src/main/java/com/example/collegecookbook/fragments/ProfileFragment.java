@@ -60,7 +60,6 @@ public class ProfileFragment extends Fragment {
 
     private void logoutUser() {
         Log.i(TAG, "Attempting to logout");
-        //TODO
         ParseUser parseUser = ParseUser.getCurrentUser();
         parseUser.logOut();
         goLoginActivity();

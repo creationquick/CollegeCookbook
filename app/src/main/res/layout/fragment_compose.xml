@@ -56,16 +56,34 @@
     <Button
         android:id="@+id/btnSubmitPost"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="58dp"
         android:layout_below="@+id/ivConfirmRecipePhoto"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="1dp"
         android:text="Submit" />
 
     <ImageView
         android:id="@+id/ivConfirmRecipePhoto"
         android:layout_width="match_parent"
-        android:layout_height="275dp"
+        android:layout_height="80dp"
         android:layout_below="@+id/etAddCaption"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="272dp"
         tools:src="@tools:sample/avatars" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvIngredients"
+        android:layout_width="match_parent"
+        android:layout_height="219dp"
+        android:layout_above="@+id/ivConfirmRecipePhoto"
+        android:layout_below="@+id/etAddCaption"
+        android:layout_marginTop="-4dp"
+        android:layout_marginBottom="-106dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSteps"
+        android:layout_width="match_parent"
+        android:layout_height="161dp"
+        android:layout_below="@+id/rvIngredients"
+        android:layout_marginTop="111dp" />
 
 </RelativeLayout>

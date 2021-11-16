@@ -86,6 +86,7 @@ public class ComposeFragment extends Fragment {
                 String caption = etAddCaption.getText().toString();
                 String recipeName = etAddRecipeName.getText().toString();
                 String category = etAddCategory.getText().toString();
+                String recipeTitle = etAddRecipeName.getText().toString();
                 if(caption.isEmpty() || recipeName.isEmpty() || category.isEmpty()){
                     Toast.makeText(getContext(), "All Fields must be filled", Toast.LENGTH_SHORT).show();
                     return;
@@ -95,7 +96,7 @@ public class ComposeFragment extends Fragment {
                     return;
                 }
                 ParseUser currentUser = ParseUser.getCurrentUser();
-                savePost(caption, category, currentUser, photoFile);
+                savePost(caption, category, currentUser, photoFile, recipeTitle);
             }
         });
     }
@@ -151,12 +152,13 @@ public class ComposeFragment extends Fragment {
         return new File(mediaStorageDir.getPath() + File.separator + fileName);
     }
 
-    private void savePost(String caption, String category, ParseUser currentUser, File photoFile) {
+    private void savePost(String caption, String category, ParseUser currentUser, File photoFile, String recipeTitle) {
         Post post = new Post();
         post.setCaption(caption);
         post.setCategory(category);
         post.setImage(new ParseFile(photoFile));
         post.setUser(currentUser);
+        post.setRecipeTitle(recipeTitle);
         post.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {

@@ -63,12 +63,13 @@ public class Post extends ParseObject {
     public void setLikesCount(int likesCount) {
         put(KEY_LIKESCOUNT, likesCount);
     }
+
     public  String getRecipeTitle() {
         return getString(KEY_RECIPETITLE);
     }
 
-    public void setRecipetitle(String recipetitle) {
-        put(KEY_RECIPETITLE, recipetitle);
+    public void setRecipeTitle(String recipeTitle) {
+        put(KEY_RECIPETITLE, recipeTitle);
     }
 
     public List<String> getSteps() {

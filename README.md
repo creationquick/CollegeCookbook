@@ -29,8 +29,8 @@ This app will allow college students to look up recipes based on categories (i.e
 - [x] User can login
 - [x] User can logout
 - [x] User can Create an account
-- [ ] User can post their own recipes
-- [ ] User can view other user's posted recipes
+- [X] User can post their own recipes
+- [X] User can view other user's posted recipes
 - [ ] User can search recipes by available ingredients, resources or user profile.
 - [ ] User can view/edit their own profile
 
@@ -118,3 +118,8 @@ This app will allow college students to look up recipes based on categories (i.e
 - User can create an account
 
 <img src='walkthrough-1.gif' width='' alt='Video Walkthrough' />
+
+### Milestone 2
+- User can post their own recipes
+- User can view other user's posted recipes
+<img src='walkthrough-2.gif' width='' alt='Video Walkthrough' />

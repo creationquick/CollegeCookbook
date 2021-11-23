@@ -125,5 +125,5 @@ This app will allow college students to look up recipes based on categories (i.e
 <img src='walkthrough-2.gif' width='' alt='Video Walkthrough' />
 
 ### Milestone 3
--User can view their own profile
+- User can view their own profile
 <img src='walkthrough-3.gif' width='' alt='Video Walkthrough' />

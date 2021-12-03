@@ -1,14 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="2dp"
     tools:context=".fragments.SearchFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvCategories"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="8dp" />
+    <Button
+        android:id="@+id/btnComfortFood"
+        android:layout_width="198dp"
+        android:layout_height="189dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:text="Comfort Food"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btnSnack"
+        app:layout_constraintTop_toBottomOf="@+id/btnDinner" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/btnDinner"
+        android:layout_width="198dp"
+        android:layout_height="189dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:text="Dinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btnLunch"
+        app:layout_constraintTop_toBottomOf="@+id/btnBreakfast" />
+
+    <Button
+        android:id="@+id/btnLunch"
+        android:layout_width="198dp"
+        android:layout_height="189dp"
+        android:layout_marginTop="2dp"
+        android:text="Lunch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnHealthy" />
+
+    <Button
+        android:id="@+id/btnBreakfast"
+        android:layout_width="198dp"
+        android:layout_height="189dp"
+        android:layout_marginStart="8dp"
+        android:text="Breakfast"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btnHealthy"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnHealthy"
+        android:layout_width="198dp"
+        android:layout_height="189dp"
+        android:text="Healthy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnSnack"
+        android:layout_width="198dp"
+        android:layout_height="189dp"
+        android:layout_marginTop="2dp"
+        android:text="Snack"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLunch" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

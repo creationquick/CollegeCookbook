@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
                 Fragment fragment;
                 switch (menuItem.getItemId()) {
                     case R.id.action_search:
-                        //Update fragment
                         Toast.makeText(MainActivity.this, "Search!", Toast.LENGTH_SHORT).show();
                         fragment = new SearchFragment();
                         break;
@@ -55,6 +54,5 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-
     }
 }

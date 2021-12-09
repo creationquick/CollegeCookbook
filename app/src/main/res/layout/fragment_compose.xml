@@ -56,34 +56,75 @@
     <Button
         android:id="@+id/btnSubmitPost"
         android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:layout_below="@+id/ivConfirmRecipePhoto"
+        android:layout_height="43dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="1dp"
         android:text="Submit" />
 
     <ImageView
         android:id="@+id/ivConfirmRecipePhoto"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_below="@+id/etAddCaption"
-        android:layout_marginTop="272dp"
+        android:layout_width="116dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/etAddCaption"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="-3dp"
+        android:layout_toStartOf="@+id/etAddRecipeName"
         tools:src="@tools:sample/avatars" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvIngredients"
+    <ListView
+        android:id="@+id/lvIngredients"
         android:layout_width="match_parent"
-        android:layout_height="219dp"
-        android:layout_above="@+id/ivConfirmRecipePhoto"
+        android:layout_height="82dp"
         android:layout_below="@+id/etAddCaption"
-        android:layout_marginTop="-4dp"
-        android:layout_marginBottom="-106dp" />
+        android:layout_marginTop="50dp">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvSteps"
+    </ListView>
+
+    <EditText
+        android:id="@+id/etAddIngredients"
+        android:layout_width="286dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lvIngredients"
+        android:layout_marginTop="23dp"
+        android:ems="10"
+        android:hint="Add an Ingredient"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/btnAddIngredient"
+        android:layout_width="87dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lvIngredients"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
+        android:layout_toEndOf="@+id/etAddIngredients"
+        android:text="Add" />
+
+    <ListView
+        android:id="@+id/lvSteps"
         android:layout_width="match_parent"
-        android:layout_height="161dp"
-        android:layout_below="@+id/rvIngredients"
-        android:layout_marginTop="111dp" />
+        android:layout_height="101dp"
+        android:layout_above="@+id/etAddSteps"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btnAddStep"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:layout_above="@+id/btnSubmitPost"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="23dp"
+        android:layout_toEndOf="@+id/etAddSteps"
+        android:text="Add" />
+
+    <EditText
+        android:id="@+id/etAddSteps"
+        android:layout_width="286dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnSubmitPost"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:hint="Add a Recipe Step"
+        android:inputType="textPersonName" />
 
 </RelativeLayout>

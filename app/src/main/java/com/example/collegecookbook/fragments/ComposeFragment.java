@@ -19,9 +19,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.collegecookbook.Post;
@@ -32,6 +36,7 @@ import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class ComposeFragment extends Fragment {
     private Button btnRecipePhoto;
@@ -46,6 +51,12 @@ public class ComposeFragment extends Fragment {
     private ImageView ivConfirmRecipePhoto;
     private Button btnSubmitPost;
     private File photoFile;
+    private ListView lvIngredients;
+    private ListView lvSteps;
+    private EditText etAddIngredient;
+    private EditText etAddStep;
+    private Button btnAddIngredient;
+    private Button btnAddStep;
     private String photoFileName = "photo.jpg";
 
     public ComposeFragment() {
@@ -72,6 +83,91 @@ public class ComposeFragment extends Fragment {
         ivConfirmRecipePhoto = view.findViewById(R.id.ivConfirmRecipePhoto);
         btnSubmitPost = view.findViewById(R.id.btnSubmitPost);
 
+
+        lvIngredients = view.findViewById(R.id.lvIngredients);
+        ArrayList<String> ingredientsList = new ArrayList<>();
+        ingredientsList.add("Ingredient 1");
+        ingredientsList.add("Ingredient 2");
+
+        ArrayAdapter<String> ingredientAdapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1, ingredientsList);
+        lvIngredients.setAdapter(ingredientAdapter);
+        lvIngredients.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
+                String clickedItem = (String) lvIngredients.getItemAtPosition(position);
+                //Delete the item from the model
+                ingredientsList.remove(position);
+                //Notify the adapter
+                ingredientAdapter.notifyDataSetChanged();
+                //ingredientAdapter.notifyItemRemoved(position);
+                //Toast.makeText(getApplicationContext(),"Item was removed", Toast.LENGTH_SHORT).show();
+                //saveItems();
+                return true;
+            }
+        });
+        lvIngredients.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String clickedItem=(String) lvIngredients.getItemAtPosition(position);
+                Toast.makeText(getContext(),clickedItem,Toast.LENGTH_LONG).show();
+            }
+        });
+
+        lvSteps = view.findViewById(R.id.lvSteps);
+        ArrayList<String> stepsList = new ArrayList<>();
+        stepsList.add("Step 1");
+        stepsList.add("Step 2");
+
+        ArrayAdapter<String> stepsAdapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1, stepsList);
+        lvSteps.setAdapter(stepsAdapter);
+        lvSteps.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
+                String clickedItem = (String) lvSteps.getItemAtPosition(position);
+                //Delete the item from the model
+                stepsList.remove(position);
+                //Notify the adapter
+                stepsAdapter.notifyDataSetChanged();
+                //ingredientAdapter.notifyItemRemoved(position);
+                //Toast.makeText(getApplicationContext(),"Item was removed", Toast.LENGTH_SHORT).show();
+                //saveItems();
+                return true;
+            }
+        });
+        lvSteps.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String clickedItem=(String) lvSteps.getItemAtPosition(position);
+                Toast.makeText(getContext(),clickedItem,Toast.LENGTH_LONG).show();
+            }
+        });
+
+        etAddIngredient = view.findViewById(R.id.etAddIngredients);
+        btnAddIngredient = view.findViewById(R.id.btnAddIngredient);
+        btnAddIngredient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String newIngredient = etAddIngredient.getText().toString();
+                ingredientsList.add(newIngredient);
+                stepsAdapter.notifyDataSetChanged();
+                Toast.makeText(getContext(),newIngredient,Toast.LENGTH_LONG).show();
+                etAddIngredient.setText("");
+            }
+        });
+
+        etAddStep = view.findViewById(R.id.etAddSteps);
+        btnAddStep = view.findViewById(R.id.btnAddStep);
+        btnAddStep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String newStep = etAddStep.getText().toString();
+                stepsList.add(newStep);
+                ingredientAdapter.notifyDataSetChanged();
+                Toast.makeText(getContext(),newStep,Toast.LENGTH_LONG).show();
+                etAddStep.setText("");
+            }
+        });
+
         btnAddRecipePhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -96,7 +192,7 @@ public class ComposeFragment extends Fragment {
                     return;
                 }
                 ParseUser currentUser = ParseUser.getCurrentUser();
-                savePost(caption, category, currentUser, photoFile, recipeTitle);
+                savePost(caption, category, currentUser, photoFile, recipeTitle, ingredientsList, stepsList);
             }
         });
     }
@@ -152,13 +248,15 @@ public class ComposeFragment extends Fragment {
         return new File(mediaStorageDir.getPath() + File.separator + fileName);
     }
 
-    private void savePost(String caption, String category, ParseUser currentUser, File photoFile, String recipeTitle) {
+    private void savePost(String caption, String category, ParseUser currentUser, File photoFile, String recipeTitle, ArrayList<String> ingredientsList, ArrayList<String> stepsList) {
         Post post = new Post();
         post.setCaption(caption);
         post.setCategory(category);
         post.setImage(new ParseFile(photoFile));
         post.setUser(currentUser);
         post.setRecipeTitle(recipeTitle);
+        post.setIngredients(ingredientsList);
+        post.setSteps(stepsList);
         post.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
